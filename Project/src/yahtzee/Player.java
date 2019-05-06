@@ -1,6 +1,7 @@
 package yahtzee;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Player {
 	
@@ -12,9 +13,18 @@ public class Player {
 	static boolean fours;
 	static boolean fives;
 	static boolean sixes;
+	private int occurrences;
 	
-
-	
+	public void ThreeOfAKind() {
+		
+		for(int i=2; i<7;i++) {
+			if(Collections.frequency(result, i)>=3) {
+				occurrences = Collections.frequency(result, i);
+				System.out.println("Three Of Kind");
+			}
+		}
+		
+	}
 	
 	public Player() { 
 		Dice d = new Dice();
@@ -31,6 +41,7 @@ public class Player {
 	}
 	
 	
+	
 	public static void main(String[] args) {
 		
 		Player results = new Player();
@@ -40,7 +51,7 @@ public class Player {
 		switch (results.result.get(i))
 		{
 		case 1: 
-			if(ones == false) { // In order to not repeat one combination, we check if the variable ones is true or not
+			if(ones == false) { // In order to not repeat one combination, we check if the variable ones is true or not (the same goes for others variables)
 				System.out.print("Ones ");
 				ones = true;
 			}
@@ -83,6 +94,8 @@ public class Player {
 			
 			break;
 		}
+		
+		
 		}
 	}
 }

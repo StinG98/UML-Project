@@ -6,15 +6,15 @@ import java.util.Scanner;
 
 public class Dice {
 	private static int counter = 2;
-	private static int diceResult;
+	private static int dieResult;
 	private static ArrayList <Integer> diceToRoll = new ArrayList <Integer>();
 	private static ArrayList <Integer> currentCombinaison = new ArrayList <Integer>();
 	
 	public static int randomDice() {
 		Random random = new Random();
 		int randomInt = random.nextInt(6)+1;
-		diceResult = randomInt;
-		return diceResult;
+		dieResult = randomInt;
+		return dieResult;
 	}
 	
 	 public Dice() { 
@@ -29,9 +29,9 @@ public class Dice {
 		0 means that the player wants to keep the dice, 1 means that he wants to roll the dice*/
 		
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("Choose which dice to roll (Change = 1/Keep = 0)");
+		System.out.println("Choose which die to roll (Change = 1/Keep = 0)");
 		for (int i=0;i<5;i++) {
-			System.out.println("Do you want to keep the dice number " + i);
+			System.out.println("Do you want to keep the die number " + i);
 			diceToRoll.add(scanner.nextInt());
 		}
 		for (int i=0;i<5;i++ ) {
@@ -42,6 +42,8 @@ public class Dice {
 		return currentCombinaison;
 		
 	}
+	
+	
 	
 	public static void main(String args[]) {
 		

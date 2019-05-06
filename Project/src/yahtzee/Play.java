@@ -3,56 +3,40 @@ package yahtzee;
 public class Play {
 	
 String nbrPlayer[];
-String currentPlayer; //joueur  a qui s'est le tour 
+String currentPlayer; 
 
 String turn(String currentPlayer) {
-	for(int i = 0; i <= length(nbrPlayer); i++) {
-		if (nbrPlayer[i] == currentPlayer) {
-			if (i == length(nbrPlayer)-1) {
+		if (nbrPlayer[1] == currentPlayer) {
 				currentPlayer = nbrPlayer[0];
 				return nbrPlayer[0];
-			}
-			else {
-				currentPlayer = nbrPlayer[i+1];
-				return nbrPlayer[i+1];
-			}
 		}
-	}
+				currentPlayer = nbrPlayer[1];
+				return nbrPlayer[1];
 }
 
-private int length(String[] nbrPlayer2) {
-	int i=0;
-	while (nbrPlayer[i] != null) {
-		i++;
-	}
-	return i;
-}
 
-int getPlayerResult(Player player) {
-	for(int i = 0; i <= length(nbrPlayer); i++) {
+public int getPlayerResult(Player player) {
+	for(int i = 0; i <= 1; i++) {
 		if (nbrPlayer[i] == currentPlayer) {
-			return Result.results[i][15];
+
+			return Result.Scoreboard.get("TotalScore");
 		}
 	}	
+	return -1; //just to be sure there is an integer going out
 }
 
 String compareResult(String player1, String player2) {
-	for(int i = 0; i <= length(nbrPlayer); i++) {
-		if (nbrPlayer[i] == player1) {
-			int x = Result.result[i][15];
-		}
-		if (nbrPlayer[i] == player2) {
-			int y = Result.result[i][15];
-		}
-	}	
-	if (x == y) {
+	int Player1 = Result.Scoreboard.get("TotalScore");
+	int Player2 = Result.Scoreboard.get("TotalScore_");
+	
+	if (Player1 == Player2) {
 		return "equal";
 	}
-	else if (x < y){
-		return player2;
+	else if (Player1 < Player2){
+		return nbrPlayer[1];
 	}
 	else {
-		return player1;
+		return nbrPlayer[0];
 	}
 }
 
