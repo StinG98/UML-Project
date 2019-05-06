@@ -13,18 +13,35 @@ public class Player {
 	static boolean fours;
 	static boolean fives;
 	static boolean sixes;
-	private int occurrences;
+	private static int occurrences;
 	
-	public void ThreeOfAKind() {
+	public static int threeOfAKind(ArrayList<Integer> d) {
 		
-		for(int i=2; i<7;i++) {
-			if(Collections.frequency(Dice, i)>=3) {
-				occurrences = Collections.frequency(Dice, i);
-				System.out.println("Three Of Kind");
+		for(int i=1; i<6;i++) {
+			if(Collections.frequency(d, i)>=3) {
+				occurrences = Collections.frequency(d, i);
+				System.out.println("Three Of Kind (" + i + ")");
+				return i;
 			}
 		}
-		
+		return 0;
 	}
+	
+	public static int fourOfAKind(ArrayList<Integer> d) {
+		
+		for(int i=1; i<6;i++) {
+			if(Collections.frequency(d, i)>=3) {
+				occurrences = Collections.frequency(d, i);
+				System.out.println("Four Of Kind (" + i + ")");
+				return i;
+			}
+		}
+		return 0;
+	}
+
+
+	
+	
 	
 	public Player() { 
 		Dice die = new Dice();
@@ -44,6 +61,7 @@ public class Player {
 		
 		Player results = new Player();
 		System.out.println(results.Dice);
+		
 		System.out.println("The possible combinations that you have are : ");
 		for (int i=0;i<5;i++) {
 		switch (results.Dice.get(i))
@@ -95,6 +113,8 @@ public class Player {
 		
 		
 		}
+		threeOfAKind(Dice);
+		
 	}
 }
 
