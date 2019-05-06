@@ -19,7 +19,7 @@ public class Dice {
 	
 	 public Dice() { 
 		 for(int i=0;i<5;i++) {
-			 currentCombinaison.add(randomDice());
+			 getCurrentCombinaison().add(randomDice());
 		 //Initializing currentCombinaison -> First throw
 		 }
 	}
@@ -36,10 +36,10 @@ public class Dice {
 		}
 		for (int i=0;i<5;i++ ) {
 			if(diceToRoll.get(i) == 1) {
-				currentCombinaison.set(i, randomDice());
+				getCurrentCombinaison().set(i, randomDice());
 			}
 		}
-		return currentCombinaison;
+		return getCurrentCombinaison();
 		
 	}
 	
@@ -48,17 +48,24 @@ public class Dice {
 	public static void main(String args[]) {
 		
 		Dice dice = new Dice();
-		System.out.println(dice.currentCombinaison + " / Number of reroll available : " + counter);
+		System.out.println(dice.getCurrentCombinaison() + " / Number of reroll available : " + counter);
 		do {
 			throwWhichDices();
 			counter = counter - 1;
-			System.out.println(dice.currentCombinaison + " / Number of reroll available : " + counter);
+			System.out.println(dice.getCurrentCombinaison() + " / Number of reroll available : " + counter);
 
 		}while(counter >0);
 		
 	}
 
+	public static ArrayList <Integer> getCurrentCombinaison() {
+		return currentCombinaison;
+	}
+
+	public static void setCurrentCombinaison(ArrayList <Integer> currentCombinaison) {
+		Dice.currentCombinaison = currentCombinaison;
+	}
+
 	
 	
 }
-	

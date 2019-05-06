@@ -1,11 +1,13 @@
 package yahtzee;
 
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class Result {
 	
 	 static HashMap<String, Integer> Scoreboard = new HashMap<String, Integer>();
-	
+	Dice dice = new Dice();
 	public enum Combination {
 		Ones,
 		Twos,
@@ -15,7 +17,6 @@ public class Result {
 		Sum,
 		Bonus,
 		ThreeOfKind,
-		FourOfKind,
 		FullHouse,
 		SmallStraight,
 		LargerStraight,
@@ -64,6 +65,38 @@ public class Result {
 	
 	 public static void main(String[] args) {
 		 
+	 }
+	 public  void WriteScore() {
+		 
+		 Scanner scanner = new Scanner(System.in);
+		 if (scanner.next() == "Ones") {
+			int x = Collections.frequency(dice.getCurrentCombinaison(), 1)*1;
+			Scoreboard.put(scanner.next(),x);
+		 }
+		 if (scanner.next() == "Twos") {
+			int x = Collections.frequency(dice.getCurrentCombinaison(), 2)*2;
+			Scoreboard.put(scanner.next(),x);
+		 }
+		 if (scanner.next() == "Threes") {
+			int x = Collections.frequency(dice.getCurrentCombinaison(), 3)*3;
+			Scoreboard.put(scanner.next(),x);
+		 }
+		 if (scanner.next() == "Fours") {
+			int x = Collections.frequency(dice.getCurrentCombinaison(), 4)*4;
+			Scoreboard.put(scanner.next(),x);
+			 }
+		 if (scanner.next() == "Fives") {
+			int x = Collections.frequency(dice.getCurrentCombinaison(), 5)*5;
+			Scoreboard.put(scanner.next(),x);
+			 }
+		 if (scanner.next() == "Sixes") {
+			int x = Collections.frequency(dice.getCurrentCombinaison(), 6)*6;
+			Scoreboard.put(scanner.next(),x);
+			 }
+		 
+		}
+		 Scoreboard.put(scanner,x);
+				 
 	 }
 
 }
