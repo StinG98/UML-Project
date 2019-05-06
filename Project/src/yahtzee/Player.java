@@ -1,10 +1,23 @@
 package yahtzee;
 
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 public class Player {
 	
-	static ArrayList<Integer> result = new ArrayList<Integer>(); 
+	Map<String,Integer> result = new HashMap<String,Integer>();
+	
+	result.put("", 1);
+	/*result.put("twos", 0);
+	result.put("threes", 0);
+	result.put("fours", 0);
+	result.put("fives", 0);
+	result.put("sixes", 0);
+	result.put("sum", 0);*/
 	
 	static boolean ones; 
 	static boolean twos;
