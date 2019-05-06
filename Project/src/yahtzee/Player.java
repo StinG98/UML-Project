@@ -5,7 +5,7 @@ import java.util.Collections;
 
 public class Player {
 	
-	static ArrayList<Integer> result = new ArrayList<Integer>(); 
+	static ArrayList<Integer> Dice = new ArrayList<Integer>(); 
 	
 	static boolean ones; 
 	static boolean twos;
@@ -18,8 +18,8 @@ public class Player {
 	public void ThreeOfAKind() {
 		
 		for(int i=2; i<7;i++) {
-			if(Collections.frequency(result, i)>=3) {
-				occurrences = Collections.frequency(result, i);
+			if(Collections.frequency(Dice, i)>=3) {
+				occurrences = Collections.frequency(Dice, i);
 				System.out.println("Three Of Kind");
 			}
 		}
@@ -27,9 +27,9 @@ public class Player {
 	}
 	
 	public Player() { 
-		Dice d = new Dice();
+		Dice die = new Dice();
 		for(int i=0;i<5;i++) {
-			 result.add(d.randomDice());
+			 Dice.add(die.randomDice());
 		 //For Testing
 		 }
 		ones = false;
@@ -40,15 +40,13 @@ public class Player {
 		sixes = false;
 	}
 	
-	
-	
 	public static void main(String[] args) {
 		
 		Player results = new Player();
-		System.out.println(results.result);
+		System.out.println(results.Dice);
 		System.out.println("The possible combinations that you have are : ");
 		for (int i=0;i<5;i++) {
-		switch (results.result.get(i))
+		switch (results.Dice.get(i))
 		{
 		case 1: 
 			if(ones == false) { // In order to not repeat one combination, we check if the variable ones is true or not (the same goes for others variables)
