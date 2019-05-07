@@ -62,11 +62,26 @@ public class Result {
 		Scoreboard.put("TotalScore_", 0);
 
 	}
-	
-	 public static void main(String[] args) {
-		 
+	 public static int sum(int player) {
+		 int sum =0;
+		 if( player==1) {
+			 sum = Scoreboard.get("Ones")+Scoreboard.get("Twos")+Scoreboard.get("Threes")+Scoreboard.get("Fours")+Scoreboard.get("Fives")+Scoreboard.get("Sixes");
+		}
+		 if( player==2) {
+			 sum = Scoreboard.get("Ones_")+Scoreboard.get("Twos_")+Scoreboard.get("Threes_")+Scoreboard.get("Fours_")+Scoreboard.get("Fives_")+Scoreboard.get("Sixes_");
+		}
+		 return sum;
 	 }
-	 public  void WriteScore() {
+	 public static int bonus(int player) {
+		 int bonus = 0;
+		 if(sum(player)>=63) {
+			 bonus = 35;
+		 }
+		 Scoreboard.put("bonus",bonus);
+		 return bonus;
+	 }
+	
+	 public void WriteScore() {
 		 
 		 Scanner scanner = new Scanner(System.in);
 		 if (scanner.next() == "Ones") {
@@ -93,10 +108,111 @@ public class Result {
 			int x = Collections.frequency(dice.getCurrentCombinaison(), 6)*6;
 			Scoreboard.put(scanner.next(),x);
 			 }
+		 if (scanner.next() == "ThreeOfAKind") {
+			 int x = 0;
+			for(int i=0;i<=4;i++) {
+				x+=dice.getCurrentCombinaison().get(i);
+			}
+			Scoreboard.put(scanner.next(),x);
+			 }
+		 if (scanner.next() == "FourOfAKind") {
+			 int x = 0;
+				for(int i=0;i<=4;i++) {
+					x+=dice.getCurrentCombinaison().get(i);
+				}
+				Scoreboard.put(scanner.next(),x);
+			
+			 }
+		 if (scanner.next() == "Fullhouse") {
+			 Scoreboard.put(scanner.next(),25);
+			 }
+		 if (scanner.next() == "SmallStraight") {
+			 Scoreboard.put(scanner.next(),25);
+			 }
+		 if (scanner.next() == "LargeStraight") {
+			 Scoreboard.put(scanner.next(),25);
+			 }
+		 if (scanner.next() == "Yahtzee") {
+			 Scoreboard.put(scanner.next(),50);
+			 }
+		 if (scanner.next() == "Bonus") {
+			 Scoreboard.put(scanner.next(),25);
+			 }
+		 if (scanner.next() == "Chance") {
+			 int x = 0;
+				for(int i=0;i<=4;i++) {
+					x+=dice.getCurrentCombinaison().get(i);
+				}
+				Scoreboard.put(scanner.next(),x);
+			 }
+		 
+		 
+		 //for player 2
+		 if (scanner.next() == "Ones_") {
+				int x = Collections.frequency(dice.getCurrentCombinaison(), 1)*1;
+				Scoreboard.put(scanner.next(),x);
+			 }
+			 if (scanner.next() == "Twos_") {
+				int x = Collections.frequency(dice.getCurrentCombinaison(), 2)*2;
+				Scoreboard.put(scanner.next(),x);
+			 }
+			 if (scanner.next() == "Threes_") {
+				int x = Collections.frequency(dice.getCurrentCombinaison(), 3)*3;
+				Scoreboard.put(scanner.next(),x);
+			 }
+			 if (scanner.next() == "Fours_") {
+				int x = Collections.frequency(dice.getCurrentCombinaison(), 4)*4;
+				Scoreboard.put(scanner.next(),x);
+				 }
+			 if (scanner.next() == "Fives_") {
+				int x = Collections.frequency(dice.getCurrentCombinaison(), 5)*5;
+				Scoreboard.put(scanner.next(),x);
+				 }
+			 if (scanner.next() == "Sixes_") {
+				int x = Collections.frequency(dice.getCurrentCombinaison(), 6)*6;
+				Scoreboard.put(scanner.next(),x);
+				 }
+			 if (scanner.next() == "ThreeOfAKind_") {
+				 int x = 0;
+				for(int i=0;i<=4;i++) {
+					x+=dice.getCurrentCombinaison().get(i);
+				}
+				Scoreboard.put(scanner.next(),x);
+				 }
+			 if (scanner.next() == "FourOfAKind_") {
+				 int x = 0;
+					for(int i=0;i<=4;i++) {
+						x+=dice.getCurrentCombinaison().get(i);
+					}
+					Scoreboard.put(scanner.next(),x);
+				
+				 }
+			 if (scanner.next() == "Fullhouse_") {
+				 Scoreboard.put(scanner.next(),25);
+				 }
+			 if (scanner.next() == "SmallStraight_") {
+				 Scoreboard.put(scanner.next(),25);
+				 }
+			 if (scanner.next() == "LargeStraight_") {
+				 Scoreboard.put(scanner.next(),25);
+				 }
+			 if (scanner.next() == "Yahtzee_") {
+				 Scoreboard.put(scanner.next(),50);
+				 }
+			 if (scanner.next() == "Bonus_") {
+				 Scoreboard.put(scanner.next(),25);
+				 }
+			 if (scanner.next() == "Chance_") {
+				 int x = 0;
+					for(int i=0;i<=4;i++) {
+						x+=dice.getCurrentCombinaison().get(i);
+					}
+					Scoreboard.put(scanner.next(),x);
+				 }
 		 
 		}
-		 Scoreboard.put(scanner,x);
-				 
-	 }
+	 
+	 
+	}
+	
 
-}
